@@ -1,45 +1,53 @@
-'use client'
-
 import { clearEmptyObjects } from '@/lib/object.lib'
-import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime'
-import {
-  usePathname,
-  useRouter as useRouterNavigation,
-  useSearchParams,
-} from 'next/navigation'
-
+import { useNavigate, useLocation } from 'react-router'
 import QueryString from 'qs'
 
 export default function useRouter() {
-  const router = useRouterNavigation()
-  const pathname = usePathname()
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  const searchParams = useSearchParams()
-  const query = (QueryString.parse(searchParams.toString()) || {}) as Record<
+  const pathname = location.pathname
+  const query = (QueryString.parse(location.search.slice(1)) || {}) as Record<
     string,
     any
   >
 
-  const navigate = (
+  const navigateWithQuery = (
     { pathname, query = {} }: { pathname: string; query?: any },
     isReplace = false,
-    navigateOptions?: NavigateOptions,
   ) => {
-    const fullPath = [
-      pathname,
-      QueryString.stringify(clearEmptyObjects(query)),
-    ].join('?')
-    if (isReplace) {
-      router.replace(fullPath, { ...navigateOptions, scroll: false })
-    } else {
-      router.push(fullPath, { ...navigateOptions, scroll: false })
-    }
+    const queryString = QueryString.stringify(clearEmptyObjects(query))
+    const fullPath = queryString ? `${pathname}?${queryString}` : pathname
+
+    navigate(fullPath, {
+      replace: isReplace,
+      preventScrollReset: true,
+    })
+  }
+
+  const push = (path: string) => {
+    navigate(path)
+  }
+
+  const replace = (path: string) => {
+    navigate(path, { replace: true })
+  }
+
+  const back = () => {
+    navigate(-1)
+  }
+
+  const forward = () => {
+    navigate(1)
   }
 
   return {
-    ...router,
     pathname,
     query,
-    navigate,
+    navigate: navigateWithQuery,
+    push,
+    replace,
+    back,
+    forward,
   }
 }
