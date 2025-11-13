@@ -3,6 +3,10 @@ import '@ant-design/v5-patch-for-react-19'
 import { RouterProvider } from 'react-router'
 import router from './router'
 import { colorPalette } from './configs/color.config'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import NotificationProvider from './components/providers/NotificationProvider'
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
@@ -38,7 +42,11 @@ function App() {
         },
       }}
     >
-      <RouterProvider router={router} />
+      <NotificationProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </NotificationProvider>
     </ConfigProvider>
   )
 }

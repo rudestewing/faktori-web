@@ -4,7 +4,7 @@ import HomePage from '../pages/HomePage'
 import AuthLayout from '../layouts/AuthLayout'
 import LoginPage from '../pages/login/LoginPage'
 import MonitorLayout from '../layouts/MonitorLayout'
-import SamplePage from '../layouts/monitor/SamplePage'
+import SamplePage from '../pages/monitor/SamplePage'
 
 const router = createBrowserRouter([
   {
