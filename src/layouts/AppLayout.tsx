@@ -53,71 +53,140 @@ export default function AppLayout() {
               label: 'Home',
               icon: <LayoutDashboard size={16} />,
             },
-            {
-              key: '/recipe',
-              label: 'Recipe',
-              icon: <NotebookText size={16} />,
-            },
-            {
-              key: '/production',
-              label: 'Production',
-              icon: <Package size={16} />,
-            },
+            // {
+            //   key: '/formulation',
+            //   label: 'Formulation',
+            //   icon: <NotebookText size={16} />,
+            // },
+            // {
+            //   key: '/procurement',
+            //   label: 'Procurement',
+            //   icon: <Database size={16} />,
+            //   children: [
+            //     {
+            //       key: '/procurement/po',
+            //       label: 'Purchase Order',
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: '/inventory',
+            //   label: 'Inventory',
+            //   icon: <Database size={16} />,
+            //   children: [
+            //     {
+            //       key: '/inventory/material',
+            //       label: 'Material Stock',
+            //     },
+            //     {
+            //       key: '/inventory/product',
+            //       label: 'Product Stock',
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: '/commercial',
+            //   label: 'Commercial',
+            //   icon: <Database size={16} />,
+            //   children: [
+            //     {
+            //       key: '/commercial/so',
+            //       label: 'Sales Order',
+            //     },
+            //     {
+            //       key: '/commercial/delivery',
+            //       label: 'Delivery Order',
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: '/production',
+            //   label: 'Production',
+            //   icon: <Package size={16} />,
+            //   children: [
+            //     {
+            //       key: '/production/list',
+            //       label: 'Production List',
+            //     },
+            //     {
+            //       key: '/production/log',
+            //       label: 'Production Log',
+            //     },
+            //   ],
+            // },
 
-            {
-              key: '/monitoring',
-              label: 'Monitoring',
-              icon: <Monitor size={16} />,
-            },
-            {
-              key: '/report',
-              label: 'Report',
-              icon: <ChartPie size={16} />,
-              children: [
-                {
-                  key: '/report/production',
-                  label: 'Production',
-                },
-              ],
-            },
-            {
-              key: '/master',
-              label: 'Master',
-              icon: <Database size={16} />,
-              children: [
-                {
-                  key: '/master/site',
-                  label: 'Sites',
-                },
-                {
-                  key: '/master/material',
-                  label: 'Material',
-                },
-                {
-                  key: '/master/supplier',
-                  label: 'Supplier',
-                },
-                {
-                  key: '/master/customer',
-                  label: 'Customer',
-                },
-              ],
-            },
-            {
-              key: '/configuration',
-              label: 'Configuration',
-              icon: <Cog size={16} />,
-              children: [
-                {
-                  key: '/configuration/role',
-                  label: 'Role',
-                },
-                {
-                  key: '/configuration/user',
-                  label: 'User',
-                },
-              ],
-            },
+            // {
+            //   key: '/monitoring',
+            //   label: 'Monitoring',
+            //   icon: <Monitor size={16} />,
+            //   children: [
+            //     {
+            //       key: '/monitoring/production',
+            //       label: 'Monitor Production',
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: '/report',
+            //   label: 'Report',
+            //   icon: <ChartPie size={16} />,
+            //   children: [
+            //     {
+            //       key: '/report/production',
+            //       label: 'Production',
+            //     },
+            //     {
+            //       key: '/report/material-usage',
+            //       label: 'Material Usage',
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: '/master',
+            //   label: 'Master',
+            //   icon: <Database size={16} />,
+            //   children: [
+            //     {
+            //       key: '/master/site',
+            //       label: 'Sites',
+            //     },
+            //     {
+            //       key: '/master/uom',
+            //       label: 'UOM',
+            //     },
+            //     {
+            //       key: '/master/status-production',
+            //       label: 'Production Status',
+            //     },
+            //     {
+            //       key: '/master/material',
+            //       label: 'Material',
+            //     },
+            //     {
+            //       key: '/master/supplier',
+            //       label: 'Supplier',
+            //     },
+            //     {
+            //       key: '/master/customer',
+            //       label: 'Customer',
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: '/configuration',
+            //   label: 'Configuration',
+            //   icon: <Cog size={16} />,
+            //   children: [
+            //     {
+            //       key: '/configuration/role',
+            //       label: 'Role',
+            //     },
+            //     {
+            //       key: '/configuration/user',
+            //       label: 'User',
+            //     },
+            //   ],
+            // },
           ]}
           className="overflow-y-auto nice-scroll"
           style={{
