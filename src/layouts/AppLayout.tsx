@@ -1,7 +1,16 @@
 import { Button, Layout, Menu, theme } from 'antd'
 import { useState } from 'react'
 import { Outlet } from 'react-router'
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import {
+  ChartPie,
+  Cog,
+  Database,
+  LayoutDashboard,
+  Monitor,
+  NotebookText,
+  Package,
+  User,
+} from 'lucide-react'
 
 const { Header, Content, Sider } = Layout
 
@@ -38,12 +47,77 @@ export default function AppLayout() {
         <Menu
           theme="light"
           mode="inline"
-          items={Array.from({
-            length: 20,
-          }).map((_, index) => ({
-            key: String(index + 1),
-            label: `Menu Item ${index + 1}`,
-          }))}
+          items={[
+            {
+              key: '/',
+              label: 'Home',
+              icon: <LayoutDashboard size={16} />,
+            },
+            {
+              key: '/recipe',
+              label: 'Recipe',
+              icon: <NotebookText size={16} />,
+            },
+            {
+              key: '/production',
+              label: 'Production',
+              icon: <Package size={16} />,
+            },
+            {
+              key: '/master',
+              label: 'Master',
+              icon: <Database size={16} />,
+              children: [
+                {
+                  key: '/master/site',
+                  label: 'Sites',
+                },
+                {
+                  key: '/master/material',
+                  label: 'Material',
+                },
+                {
+                  key: '/master/supplier',
+                  label: 'Supplier',
+                },
+                {
+                  key: '/master/customer',
+                  label: 'Customer',
+                },
+              ],
+            },
+            {
+              key: '/monitoring',
+              label: 'Monitoring',
+              icon: <Monitor size={16} />,
+            },
+            {
+              key: '/report',
+              label: 'Report',
+              icon: <ChartPie size={16} />,
+              children: [
+                {
+                  key: '/report/production',
+                  label: 'Production',
+                },
+              ],
+            },
+            {
+              key: '/configuration',
+              label: 'Configuration',
+              icon: <Cog size={16} />,
+              children: [
+                {
+                  key: '/configuration/role',
+                  label: 'Role',
+                },
+                {
+                  key: '/configuration/user',
+                  label: 'User',
+                },
+              ],
+            },
+          ]}
           className="overflow-y-auto nice-scroll"
           style={{
             height: '100%',
@@ -53,23 +127,34 @@ export default function AppLayout() {
       <Layout>
         <Header
           style={{
+            height: 60,
             padding: 0,
             background: '#fff',
             position: 'sticky',
             top: 0,
             zIndex: 5,
+            lineHeight: 0,
           }}
         >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
-          />
+          <div className="flex h-full justify-between items-center px-4">
+            <div>
+              {/* <Button
+                type="text"
+                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                onClick={() => setCollapsed(!collapsed)}
+                style={{
+                  fontSize: '16px',
+                  // width: 64,
+                  // height: 64,
+                }}
+              /> */}
+            </div>
+            <div>
+              <Button>
+                <User />
+              </Button>
+            </div>
+          </div>
         </Header>
         <Content
           className="my-6 mx-4 p-4"
