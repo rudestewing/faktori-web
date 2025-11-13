@@ -63,6 +63,23 @@ export default function AppLayout() {
               label: 'Production',
               icon: <Package size={16} />,
             },
+
+            {
+              key: '/monitoring',
+              label: 'Monitoring',
+              icon: <Monitor size={16} />,
+            },
+            {
+              key: '/report',
+              label: 'Report',
+              icon: <ChartPie size={16} />,
+              children: [
+                {
+                  key: '/report/production',
+                  label: 'Production',
+                },
+              ],
+            },
             {
               key: '/master',
               label: 'Master',
@@ -83,22 +100,6 @@ export default function AppLayout() {
                 {
                   key: '/master/customer',
                   label: 'Customer',
-                },
-              ],
-            },
-            {
-              key: '/monitoring',
-              label: 'Monitoring',
-              icon: <Monitor size={16} />,
-            },
-            {
-              key: '/report',
-              label: 'Report',
-              icon: <ChartPie size={16} />,
-              children: [
-                {
-                  key: '/report/production',
-                  label: 'Production',
                 },
               ],
             },
